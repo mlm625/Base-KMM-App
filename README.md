@@ -3,6 +3,12 @@ A foundation for building KMM Apps with Jetpack compose and Swift UI.  This is s
 Android Studio to create a KMM project, but uses Jetpack compose for the Android UI portion of the
 project setup. 
 
+## Core Multiplatform Libraries
+The following libraries are configured by default. Make sure to remove these libraries if not needed.
+- Ktor for networking: https://ktor.io/ 
+- SQLDelight for database: https://github.com/cashapp/sqldelight
+- Kotlin Serialization for JSON parsing: https://github.com/Kotlin/kotlinx.serialization
+
 ## Android Studio
 Make sure you have the latest Canary build. 
 - KMM is in alpha, but only available through preview.
