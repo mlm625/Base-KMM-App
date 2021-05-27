@@ -34,13 +34,22 @@ android {
 
 kotlin {
     android()
-    ios {
+
+    // Block from https://github.com/cashapp/sqldelight/issues/2044#issuecomment-721299517.
+    val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
+        if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
+            ::iosArm64
+        else
+            ::iosX64
+
+    iOSTarget("ios") {
         binaries {
             framework {
                 baseName = "shared"
             }
         }
     }
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -83,7 +92,8 @@ val packForXcode by tasks.creating(Sync::class) {
     group = "build"
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
     val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
-    val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
+    //val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
+    val targetName = "ios"
     val framework =
         kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
     inputs.property("mode", mode)
