@@ -29,7 +29,7 @@ There are couple of temporary workarounds in the project. Hopefully these can be
 
 #### SqlDelight gradle bug
 - Workaround for https://github.com/cashapp/sqldelight/issues/2044
-- A combined iOS target does not work. Need to specifically call out arm64. 
+- A combined iOS target does not work. Need to specifically call out each arch, i.e. arm64. 
 
 ## Apple Silicon
 If you jumped in head first and got a new M1 laptop, read on.
