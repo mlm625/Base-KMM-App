@@ -20,12 +20,16 @@ Get from: https://developer.android.com/studio/preview
 There are couple of temporary workarounds in the project. Hopefully these can be removed once the fixes are in place.
 
 #### KMM shared module compile error: Configuration with name 'testApi' not found.
-- Work around for https://youtrack.jetbrains.com/issue/KT-43944
+- Workaround for https://youtrack.jetbrains.com/issue/KT-43944
 - Jetbrains fix has not GA'ed yet.
 
 #### Jcenter obsolecence
 - Support stops 2/2022. 
 - jcenter() is still used. Can't be removed until the Kotlinx dependencies move to mavenCentral.
+
+#### SqlDelight gradle bug
+- Workaround for https://github.com/cashapp/sqldelight/issues/2044
+- A combined iOS target does not work. Need to specifically call out each arch, i.e. arm64. 
 
 ## Apple Silicon
 If you jumped in head first and got a new M1 laptop, read on.
